@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="可聴域チェッカー（仮）">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pc-cnt.github.io/Ear/">
+    <meta property="og:description" content="イヤホン、ヘッドホン推奨です">
+    <title>可聴域チェッカー（仮）</title>
+
+    <style>
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+        }
+        #audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+            justify-items: center;
+            justify-content: center;
+            row-gap: 16px;
+            margin-top: 8vh;
+        }
+
+        h1, h2 {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const audioElements = document.querySelectorAll("audio");
+
+            audioElements.forEach(audio => {
+                audio.addEventListener("play", () => {
+                    audioElements.forEach(otherAudio => {
+                        if (otherAudio !== audio && !otherAudio.paused) {
+                            otherAudio.pause();
+                            otherAudio.currentTime = 0;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <div style="text-align: center;">
+        <h1 style="text-align: center;">可聴域チェッカー（仮）</h1>
+        <a href="https://github.com/PC-CNT/Ear">source code</a>
+    </div>
+    <div id="audio-grid">
+        <div>
+            <h2>10Hz</h2>
+            <audio controls src="audio/10Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>20Hz（最低可聴域）</h2>
+            <audio controls src="audio/20Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>30Hz</h2>
+            <audio controls src="audio/30Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>40Hz</h2>
+            <audio controls src="audio/40Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>50Hz</h2>
+            <audio controls src="audio/50Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>100Hz</h2>
+            <audio controls src="audio/100Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>1000Hz</h2>
+            <audio controls src="audio/1000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>10000Hz</h2>
+            <audio controls src="audio/10000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>11000Hz</h2>
+            <audio controls src="audio/11000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>12000Hz</h2>
+            <audio controls src="audio/12000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>13000Hz</h2>
+            <audio controls src="audio/13000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>14000Hz</h2>
+            <audio controls src="audio/14000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>15000Hz</h2>
+            <audio controls src="audio/15000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>16000Hz</h2>
+            <audio controls src="audio/16000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>17000Hz</h2>
+            <audio controls src="audio/17000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>18000Hz</h2>
+            <audio controls src="audio/18000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>19000Hz</h2>
+            <audio controls src="audio/19000Hz.wav"></audio>
+        </div>
+        <div>
+            <h2>20000Hz（最高可聴域）</h2>
+            <audio controls src="audio/20000Hz.wav"></audio>
+        </div>
+    </div>
+</body>
+
+</html>
